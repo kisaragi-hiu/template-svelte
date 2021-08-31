@@ -1,6 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script>
+      // https://answers.netlify.com/t/bug-in-non-trailing-slash-rewrite/452/24
+      //
+      // When accessing this from a redirect on Netlify (eg.
+      // from example.com/myapp to myapp.netlify.app),
+      // relative paths only work when there is a trailing slash,
+      // despite the doc claiming that they're equivalent.
+      //
+      // This is AFAIK because it sees itself as myapp.html and not
+      // myapp/index.html.
+      //
+      // This works around that by navigating to the page with a
+      // trailing slash.
+      if (
+        // if our path is in a subdirectory & does not have a
+        // trailing slash
+        (window.location.href.match(/\//g) || []).length > 2 &&
+        !window.location.href.endsWith("/")
+      ) {
+        window.location.href = window.location.href + "/";
+      }
+    </script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
 

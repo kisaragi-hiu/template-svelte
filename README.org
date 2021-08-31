@@ -1,0 +1,24 @@
+* My Svelte template
+
+Derived from [[https://github.com/jhanca-vm/Svelte-Tailwind][jhanca-vm/Svelte-Tailwind]].
+
+- TypeScript, TailwindCSS, Svelte, Rollup, Make
+- Entry point ::
+  - =src/main.ts=
+  - =src/App.svelte=
+- Built files ::
+  - =dist/built.js=
+  - =dist/built.css=
+
+** Usage
+
+#+begin_src sh
+npm install
+#+end_src
+
+- make dev :: start a dev server (rollup + sirv)
+  - make dev-js :: Rollup
+  - make serve :: Sirv
+- make clean :: clean up built files; keep folders, including =node_modules=
+  - make clean-all :: clean up everything not committed
+- make build :: build for production

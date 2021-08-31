@@ -1,5 +1,5 @@
-<script>
-  export let name;
+<script lang="ts">
+  export let name: string;
 </script>
 
 <main class="text-center p-4 max-w-xs mx-auto sm:max-w-none">
